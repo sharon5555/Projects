@@ -1,0 +1,140 @@
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body{
+    min-height: 100vh;
+
+    background: #111;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    padding: 40px;
+}
+
+/* Heading */
+h1{
+    color: white;
+
+    margin-bottom: 40px;
+}
+
+/* Gallery */
+.gallery{
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 25px;
+}
+
+/* Card */
+.card{
+    position: relative;
+
+    width: 300px;
+    height: 400px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+}
+
+/* Image */
+.card img{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .5s ease;
+}
+
+/* Overlay */
+.overlay{
+    position: absolute;
+
+    inset: 0;
+
+    background:
+    rgba(0,0,0,.75);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: white;
+
+    opacity: 0;
+
+    transition: .5s ease;
+}
+
+/* Overlay Text */
+.overlay h2{
+    transform: translateY(50px);
+
+    transition: .5s ease;
+}
+
+.overlay p{
+    transform: translateY(50px);
+
+    transition: .7s ease;
+}
+
+/* Button */
+.overlay button{
+    padding: 12px 25px;
+
+    border: none;
+
+    background: gold;
+
+    color: black;
+
+    font-weight: bold;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transform: translateY(50px);
+
+    transition: .9s ease;
+}
+
+/* Hover Effects */
+.card:hover img{
+    transform: scale(1.1);
+}
+
+.card:hover .overlay{
+    opacity: 1;
+}
+
+.card:hover .overlay h2,
+.card:hover .overlay p,
+.card:hover .overlay button{
+    transform: translateY(0);
+}

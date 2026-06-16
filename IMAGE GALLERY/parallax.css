@@ -1,0 +1,155 @@
+/* =========================
+   RESET
+========================= */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+body{
+    font-family: Arial, sans-serif;
+    background: #111;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero{
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.5),
+        rgba(0,0,0,.5)
+    ),
+    url("stadium.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    animation: zoomBg 20s linear infinite;
+}
+
+.hero h1{
+    font-size: 5rem;
+    text-align: center;
+}
+
+/* =========================
+   GALLERY SECTION
+========================= */
+.gallery{
+    padding: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    background: #111;
+}
+
+/* =========================
+   CARD
+========================= */
+.card{
+    width: 250px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transition: .4s ease;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.3);
+}
+
+.card img{
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+}
+
+.card h3{
+    padding: 20px;
+
+    text-align: center;
+
+    color: #333;
+}
+
+/* =========================
+   CARD HOVER
+========================= */
+.card:hover{
+    transform: translateY(-15px);
+
+    box-shadow: 0 20px 40px rgba(0,0,0,.5);
+}
+
+/* =========================
+   SECOND PARALLAX SECTION
+========================= */
+.parallax{
+    height: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.6),
+        rgba(0,0,0,.6)
+    ),
+    url("football-crowd.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.parallax h2{
+    font-size: 4rem;
+
+    text-align: center;
+}
+
+/* =========================
+BACKGROUND ZOOM ANIMATION
+========================= */
+@keyframes zoomBg{
+
+    0%{
+        background-size: 100%;
+    }
+
+    50%{
+        background-size: 110%;
+    }
+
+    100%{
+        background-size: 100%;
+    }
+
+}

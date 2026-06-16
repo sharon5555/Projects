@@ -1,0 +1,56 @@
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body{
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 40px;
+}
+
+/* Container */
+.gallery-container{
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Heading */
+.gallery-container h1{
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Gallery Grid */
+.gallery{
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 20px;
+}
+
+/* Image Card */
+.image-card{
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* Images */
+.image-card img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+/* Hover Effect */
+.image-card:hover img{
+    transform: scale(1.1);
+}
