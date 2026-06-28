@@ -36,6 +36,20 @@ h1{
 
     width: 500px;
     height: 500px;
+    animation: spin 20s linear infinite; /*Auto-Rotating Circle*/
+}
+
+/*Auto-Rotating Circle*/
+@keyframes spin{
+
+    from{
+        transform: rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+
 }
 
 /* Players */

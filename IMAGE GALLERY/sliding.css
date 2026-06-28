@@ -37,9 +37,19 @@ h1{
     display: none;
 }
 
+.gallery:hover .card{
+    opacity: 0.7;
+}
+
+.gallery .card:hover{
+    opacity: 1;
+
+    transform: scale(1.2);
+}
+
 /* Card */
 .card{
-    min-width: 250px;
+    min-width: 300px;
 
     height: 350px;
 
