@@ -1,0 +1,133 @@
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Body */
+body{
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b
+    );
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    font-family:Arial,sans-serif;
+
+    padding:40px;
+}
+
+/* Heading */
+h1{
+    color:white;
+
+    margin-bottom:50px;
+}
+
+/* Gallery */
+.gallery{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:30px;
+}
+
+/* Card */
+.card{
+    width:250px;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.3);
+
+    cursor:pointer;
+
+    animation:
+    float 4s ease-in-out infinite;
+
+    transition:.4s ease;
+}
+
+/* Images */
+.card img{
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+}
+
+/* Title */
+.card h3{
+    text-align:center;
+
+    padding:20px;
+
+    color:#333;
+}
+
+@keyframes float{
+
+    0%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(-20px);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+
+}
+
+.card:nth-child(2){
+    animation-delay:.5s;
+}
+
+.card:nth-child(3){
+    animation-delay:1s;
+}
+
+.card:nth-child(4){
+    animation-delay:1.5s;
+}
+
+.card:nth-child(5){
+    animation-delay:2s;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-15px)
+    scale(1.05);
+
+}
+
+.card:hover{
+
+    box-shadow:
+    0 0 20px #00ffff,
+    0 0 40px #00ffff;
+
+}
