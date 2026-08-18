@@ -1,0 +1,249 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body{
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, .5),
+            rgba(0, 0, 0, .5)
+        ),
+        url("space.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    font-family: Arial, sans-serif;
+
+    color: white;
+
+    padding: 50px 30px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+header h1{
+    font-size: 3rem;
+
+    margin-bottom: 10px;
+}
+
+header p{
+    color: #d1d5db;
+
+    font-size: 1.1rem;
+}
+
+
+/* =========================
+   ACCORDION
+========================= */
+
+.accordion{
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    height: 500px;
+
+    margin: auto;
+
+    display: flex;
+
+    gap: 10px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+}
+
+
+/* =========================
+   PLANET CARDS
+========================= */
+
+.planet{
+
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+
+    background-size: cover;
+
+    background-position: center;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        flex .7s ease,
+        background-position .7s ease;
+}
+
+
+/* =========================
+   PLANET BACKGROUNDS
+========================= */
+
+.earth{
+    background-image: url("./assets/earth.jpeg");
+}
+
+.mars{
+    background-image: url("./assets/mars.jpg");
+}
+
+.jupiter{
+    background-image: url("./assets/jupitar.jpeg");
+}
+
+.mercury{
+    background-image: url("./assets/mercury.jpg");
+}
+
+.venus{
+    background-image: url("./assets/venus.jpg");
+}
+
+
+/* =========================
+   DARK OVERLAY
+========================= */
+
+.planet::before{
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 40%,
+            rgba(0,0,0,.8)
+        );
+
+    transition: .5s ease;
+}
+
+
+/* =========================
+   PLANET INFORMATION
+========================= */
+
+.planet-info{
+
+    position: absolute;
+
+    left: 25px;
+
+    bottom: 25px;
+
+    z-index: 2;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+}
+
+
+.planet-info h2{
+
+    font-size: 2rem;
+
+    margin-bottom: 8px;
+}
+
+
+.planet-info p{
+
+    font-size: 1rem;
+
+    color: #e5e7eb;
+}
+
+
+/* =========================
+   HOVER EFFECT
+========================= */
+
+.planet:hover{
+
+    flex: 5;
+}
+
+
+/* Show information
+   when hovering */
+
+.planet:hover .planet-info{
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+@media(max-width: 700px){
+
+    body{
+        padding: 30px 15px;
+    }
+
+    header h1{
+        font-size: 2rem;
+    }
+
+    .accordion{
+
+        height: 600px;
+
+        flex-direction: column;
+
+    }
+
+    .planet{
+
+        min-height: 100px;
+
+    }
+
+    .planet:hover{
+
+        flex: 4;
+
+    }
+
+}
