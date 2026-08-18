@@ -153,3 +153,24 @@ BACKGROUND ZOOM ANIMATION
     }
 
 }
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size: 3rem;
+    }
+
+    .parallax h2{
+        font-size: 2.5rem;
+    }
+
+    .gallery{
+        padding: 40px 20px;
+    }
+
+    .card{
+        width: 100%;
+        max-width: 300px;
+    }
+
+}
