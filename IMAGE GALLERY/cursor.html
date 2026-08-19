@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive -->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cursor Following Gallery</title>
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="cursor.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <p class="small-title">
+            WILDLIFE COLLECTION
+        </p>
+
+        <h1>
+            🐾 Cursor Following Gallery
+        </h1>
+
+        <p>
+            Move your mouse over an animal name.
+        </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         GALLERY
+    ========================== -->
+
+    <main class="animal-gallery">
+
+
+        <!-- ANIMAL LIST -->
+
+        <div class="animal-list">
+
+
+            <!-- Lion -->
+
+            <div
+                class="animal"
+                data-image="../IMAGE GALLERY/assets/lion.jpeg"
+            >
+
+                <span>01</span>
+
+                <h2>Lion</h2>
+
+                <p>
+                    King of the jungle.
+                </p>
+
+            </div>
+
+
+
+            <!-- Elephant -->
+
+            <div
+                class="animal"
+                data-image="../IMAGE GALLERY/assets/elephant.jpeg"
+            >
+
+                <span>02</span>
+
+                <h2>Elephant</h2>
+
+                <p>
+                    The gentle giant.
+                </p>
+
+            </div>
+
+
+
+            <!-- Tiger -->
+
+            <div
+                class="animal"
+                data-image="../IMAGE GALLERY/assets/tiger.jpg"
+            >
+
+                <span>03</span>
+
+                <h2>Tiger</h2>
+
+                <p>
+                    Strong and powerful.
+                </p>
+
+            </div>
+
+
+
+            <!-- Panda -->
+
+            <div
+                class="animal"
+                data-image="../IMAGE GALLERY/assets/panda.jpg"
+            >
+
+                <span>04</span>
+
+                <h2>Panda</h2>
+
+                <p>
+                    Cute and peaceful.
+                </p>
+
+            </div>
+
+
+
+            <!-- Giraffe -->
+
+            <div
+                class="animal"
+                data-image="../IMAGE GALLERY/assets/giraffe.jpeg"
+            >
+
+                <span>05</span>
+
+                <h2>Giraffe</h2>
+
+                <p>
+                    Tall and beautiful.
+                </p>
+
+            </div>
+
+
+
+            <!-- Wolf -->
+
+            <div
+                class="animal"
+                data-image="../IMAGE GALLERY/assets/wolf.jpeg"
+            >
+
+                <span>06</span>
+
+                <h2>Wolf</h2>
+
+                <p>
+                    Wild and fearless.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =========================
+            CURSOR IMAGE
+        ========================== -->
+
+        <div class="cursor-image">
+
+            <img
+                id="previewImage"
+                src=""
+                alt="Animal preview"
+            >
+
+        </div>
+
+
+    </main>
+
+
+    <!-- Connect JavaScript -->
+    <script src="cursor.js"></script>
+
+</body>
+
+</html>
