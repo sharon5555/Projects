@@ -1,0 +1,403 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body{
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b
+        );
+
+    padding: 60px 20px 100px;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+
+.small-title{
+
+    color: #38bdf8;
+
+    font-size: .8rem;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 10px;
+}
+
+
+.header h1{
+
+    font-size: 3rem;
+
+    margin-bottom: 12px;
+}
+
+
+.header > p:last-child{
+
+    color: #94a3b8;
+
+    font-size: 1rem;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+/* =========================
+   COMPARISON CARD
+========================= */
+
+.comparison-card{
+
+    background:
+        rgba(255,255,255,.08);
+
+    border: 1px solid
+        rgba(255,255,255,.15);
+
+    border-radius: 20px;
+
+    padding: 10px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.3);
+
+    transition: .4s ease;
+}
+
+
+.comparison-card:hover{
+
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.5);
+}
+
+
+/* =========================
+   COMPARISON AREA
+========================= */
+
+.comparison{
+
+    width: 100%;
+
+    height: 350px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    cursor: ew-resize;
+}
+
+
+/* =========================
+   BEFORE IMAGE
+========================= */
+
+.before-image{
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   AFTER IMAGE CONTAINER
+========================= */
+
+.after-container{
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 50%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    border-right: 3px solid white;
+}
+
+
+/* =========================
+   AFTER IMAGE
+========================= */
+
+.after-image{
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   LABELS
+========================= */
+
+.label{
+
+    position: absolute;
+
+    top: 20px;
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(0,0,0,.6);
+
+    backdrop-filter: blur(5px);
+
+    font-size: .75rem;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    z-index: 5;
+}
+
+
+.before-label{
+
+    left: 15px;
+}
+
+
+.after-label{
+
+    right: 15px;
+}
+
+
+/* =========================
+   SLIDER LINE
+========================= */
+
+.slider-line{
+
+    position: absolute;
+
+    top: 0;
+
+    left: 50%;
+
+    width: 3px;
+
+    height: 100%;
+
+    background: white;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 0 10px rgba(255,255,255,.8);
+}
+
+
+/* =========================
+   SLIDER BUTTON
+========================= */
+
+.slider-button{
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    transform:
+        translate(-50%, -50%);
+
+    background: white;
+
+    color: #0f172a;
+
+    font-size: 1.4rem;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.5);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   CARD INFORMATION
+========================= */
+
+.card-info{
+
+    padding: 20px 10px 10px;
+
+    text-align: center;
+}
+
+
+.card-info h2{
+
+    font-size: 1.4rem;
+
+    margin-bottom: 8px;
+}
+
+
+.card-info p{
+
+    color: #94a3b8;
+
+    line-height: 1.5;
+
+    font-size: .9rem;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width: 950px){
+
+    .gallery{
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 600px){
+
+    body{
+
+        padding:
+            40px 15px 100px;
+
+    }
+
+    .header h1{
+
+        font-size: 2.2rem;
+
+    }
+
+    .gallery{
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .comparison{
+
+        height: 320px;
+
+    }
+
+}
