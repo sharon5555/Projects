@@ -1,0 +1,447 @@
+/* ========================================
+   RESET
+   Removes the browser's default spacing
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   BODY
+   Styles the whole webpage
+======================================== */
+
+body {
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #020617,
+        #082f49,
+        #164e63
+    );
+
+    /* Space around the webpage */
+    padding: 60px 30px 100px;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.header {
+    text-align: center;
+
+    max-width: 800px;
+
+    margin: 0 auto 60px;
+}
+
+
+/* Small heading above the main title */
+
+.small-title {
+    color: #22d3ee;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 12px;
+}
+
+
+/* Main heading */
+
+.header h1 {
+    font-size: 3rem;
+
+    margin-bottom: 15px;
+}
+
+
+/* Header description */
+
+.header > p:last-child {
+    color: #a5f3fc;
+
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   GALLERY
+======================================== */
+
+.gallery {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    /* Three cards on large screens */
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* ========================================
+   REVEAL CARD
+======================================== */
+
+.reveal-card {
+    position: relative;
+
+    height: 420px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #082f49;
+
+    cursor: pointer;
+
+    /* Keeps the layers inside this card */
+    isolation: isolate;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* ========================================
+   CARD HOVER
+======================================== */
+
+.reveal-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 25px 60px rgba(34, 211, 238, 0.25);
+}
+
+
+/* ========================================
+   CARD BACKGROUND
+======================================== */
+
+.reveal-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        #0e7490,
+        #164e63
+    );
+
+    /*
+       Background stays behind
+       the image and text.
+    */
+    z-index: 0;
+}
+
+
+/* ========================================
+   IMAGE
+   This is the image that appears
+   when we hover over the card.
+======================================== */
+
+.reveal-card img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    /* Makes the image fill the card */
+    object-fit: cover;
+
+    display: block;
+
+    /*
+       The image starts hidden.
+    */
+    opacity: 0;
+
+    /*
+       The image starts slightly zoomed.
+    */
+    transform: scale(1.15);
+
+    /*
+       Makes the reveal smooth.
+    */
+    transition:
+        opacity 0.6s ease,
+        transform 0.8s ease;
+
+    /*
+       Image is above the background
+       but below the text.
+    */
+    z-index: 1;
+}
+
+
+/* ========================================
+   IMAGE HOVER
+======================================== */
+
+.reveal-card:hover img {
+    /*
+       Make the image visible.
+    */
+    opacity: 1;
+
+    /*
+       Return the image to normal size.
+    */
+    transform: scale(1);
+}
+
+
+/* ========================================
+   DARK IMAGE OVERLAY
+======================================== */
+
+.reveal-card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 35%,
+        rgba(0, 0, 0, 0.85)
+    );
+
+    /*
+       Put the dark overlay above
+       the image.
+    */
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.card-content {
+    position: absolute;
+
+    left: 25px;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    /*
+       Text stays above the image.
+    */
+    z-index: 3;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+/* ========================================
+   CARD NUMBER
+======================================== */
+
+.card-content span {
+    color: #67e8f9;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 3px;
+}
+
+
+/* ========================================
+   CARD TITLE
+======================================== */
+
+.card-content h2 {
+    font-size: 1.8rem;
+
+    margin: 8px 0;
+}
+
+
+/* ========================================
+   CARD DESCRIPTION
+======================================== */
+
+.card-content p {
+    color: #cffafe;
+
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   TEXT HOVER
+======================================== */
+
+.reveal-card:hover .card-content {
+    transform: translateY(-5px);
+}
+
+
+/* ========================================
+   REVEAL CIRCLE
+======================================== */
+
+.reveal-circle {
+    position: absolute;
+
+    width: 80px;
+
+    height: 80px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    /*
+       Start in the center.
+    */
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    transition:
+        transform 0.8s
+        cubic-bezier(
+            0.68,
+            -0.55,
+            0.27,
+            1.55
+        );
+
+    /*
+       Don't allow the circle
+       to block the mouse.
+    */
+    pointer-events: none;
+
+    /*
+       Put it above the image
+       but below the text.
+    */
+    z-index: 2;
+}
+
+
+/* ========================================
+   CIRCLE HOVER
+======================================== */
+
+.reveal-card:hover .reveal-circle {
+    /*
+       Make the circle grow.
+    */
+    transform:
+        translate(-50%, -50%)
+        scale(7);
+}
+
+
+/* ========================================
+   CARD NUMBER/TEXT ABOVE EVERYTHING
+======================================== */
+
+.card-content {
+    z-index: 5;
+}
+
+
+/* ========================================
+   TABLET RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 900px) {
+
+    .gallery {
+        /*
+           Two cards per row
+           on tablet screens.
+        */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .header h1 {
+        font-size: 2.4rem;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding:
+            40px 20px 80px;
+    }
+
+
+    .gallery {
+        /*
+           One card per row
+           on small screens.
+        */
+        grid-template-columns: 1fr;
+    }
+
+
+    .reveal-card {
+        height: 380px;
+    }
+
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+
+    .header > p:last-child {
+        font-size: 0.9rem;
+    }
+
+}

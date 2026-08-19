@@ -1,0 +1,401 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* ========================================
+   BODY
+======================================== */
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1e1b4b,
+            #312e81,
+            #581c87
+        );
+
+    padding:
+        60px 30px 100px;
+
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.header {
+
+    text-align: center;
+
+    margin-bottom: 50px;
+
+}
+
+
+.small-title {
+
+    color: #f0abfc;
+
+    font-size: .8rem;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.header h1 {
+
+    font-size: 3rem;
+
+    margin-bottom: 12px;
+
+}
+
+
+.header > p {
+
+    color: #ddd6fe;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* ========================================
+   SHUFFLE BUTTON
+======================================== */
+
+.shuffle-btn {
+
+    border: none;
+
+    outline: none;
+
+    padding:
+        14px 28px;
+
+    border-radius: 30px;
+
+    background:
+        #f0abfc;
+
+    color:
+        #3b0764;
+
+    font-size:
+        1rem;
+
+    font-weight:
+        bold;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform .3s ease,
+        background .3s ease;
+
+}
+
+
+/* Button hover */
+
+.shuffle-btn:hover {
+
+    background:
+        #ffffff;
+
+    transform:
+        scale(1.08);
+
+}
+
+
+/* Button click */
+
+.shuffle-btn:active {
+
+    transform:
+        scale(.95);
+
+}
+
+
+/* ========================================
+   GALLERY
+======================================== */
+
+.gallery {
+
+    max-width:
+        1100px;
+
+    margin:
+        auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        20px;
+
+}
+
+
+/* ========================================
+   GALLERY CARD
+======================================== */
+
+.gallery-card {
+
+    position:
+        relative;
+
+    height:
+        350px;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        20px;
+
+    background:
+        #18181b;
+
+    cursor:
+        pointer;
+
+    box-shadow:
+        0 15px 30px
+        rgba(0,0,0,.35);
+
+    /*
+       This makes the movement
+       between positions smooth.
+    */
+    transition:
+        transform .8s
+        cubic-bezier(
+            .25,
+            .8,
+            .25,
+            1
+        );
+
+}
+
+
+/* ========================================
+   IMAGE
+======================================== */
+
+.gallery-card img {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+    object-fit:
+        cover;
+
+    transition:
+        transform .5s ease;
+
+}
+
+
+/* ========================================
+   IMAGE HOVER
+======================================== */
+
+.gallery-card:hover img {
+
+    transform:
+        scale(1.08);
+
+}
+
+
+/* ========================================
+   DARK OVERLAY
+======================================== */
+
+.gallery-card::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        linear-gradient(
+            transparent 35%,
+            rgba(0,0,0,.85)
+        );
+
+    pointer-events:
+        none;
+
+}
+
+
+/* ========================================
+   CARD INFORMATION
+======================================== */
+
+.card-info {
+
+    position:
+        absolute;
+
+    left:
+        20px;
+
+    right:
+        20px;
+
+    bottom:
+        20px;
+
+    z-index:
+        2;
+
+}
+
+
+.card-info span {
+
+    color:
+        #f0abfc;
+
+    font-size:
+        .75rem;
+
+    letter-spacing:
+        3px;
+
+}
+
+
+.card-info h2 {
+
+    margin:
+        7px 0;
+
+    font-size:
+        1.5rem;
+
+}
+
+
+.card-info p {
+
+    color:
+        #e9d5ff;
+
+    font-size:
+        .9rem;
+
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+    .gallery {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .header h1 {
+
+        font-size:
+            2.5rem;
+
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding:
+            40px 20px 80px;
+
+    }
+
+
+    .gallery {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .gallery-card {
+
+        height:
+            380px;
+
+    }
+
+
+    .header h1 {
+
+        font-size:
+            2rem;
+
+    }
+
+}
