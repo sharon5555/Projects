@@ -1,0 +1,418 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body{
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #020617,
+            #164e63
+        );
+
+    padding:
+        60px 30px 100px;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+    text-align: center;
+
+    margin-bottom: 50px;
+
+}
+
+
+.small-title{
+
+    color: #22d3ee;
+
+    font-size: .8rem;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.header h1{
+
+    font-size: 3rem;
+
+    margin-bottom: 10px;
+
+}
+
+
+.header > p:last-child{
+
+    color: #94a3b8;
+
+}
+
+
+/* =========================
+   BENTO GRID
+========================= */
+
+.bento-gallery{
+
+    max-width: 1200px;
+
+    height: 650px;
+
+    margin: auto;
+
+    display: grid;
+
+    /*
+       We create 4 columns.
+    */
+
+    grid-template-columns:
+        1.2fr
+        1fr
+        1fr
+        1.2fr;
+
+
+    /*
+       We create 3 rows.
+    */
+
+    grid-template-rows:
+        1fr
+        1fr
+        1fr;
+
+
+    gap: 15px;
+
+}
+
+
+/* =========================
+   BENTO CARD
+========================= */
+
+.bento-card{
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.3);
+
+}
+
+
+/* =========================
+   CARD IMAGE
+========================= */
+
+.bento-card img{
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .7s ease;
+
+}
+
+
+/* =========================
+   DARK OVERLAY
+========================= */
+
+.bento-card::after{
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 35%,
+            rgba(0,0,0,.85)
+        );
+
+}
+
+
+/* =========================
+   CARD TEXT
+========================= */
+
+.overlay{
+
+    position: absolute;
+
+    left: 25px;
+
+    bottom: 25px;
+
+    z-index: 2;
+
+}
+
+
+.overlay span{
+
+    color: #22d3ee;
+
+    font-size: .75rem;
+
+    letter-spacing: 3px;
+
+}
+
+
+.overlay h2{
+
+    font-size: 1.8rem;
+
+    margin:
+        5px 0;
+
+}
+
+
+.overlay p{
+
+    color: #cbd5e1;
+
+    font-size: .9rem;
+
+}
+
+
+/* =========================
+   GRID POSITIONS
+========================= */
+
+
+/*
+   Mountains takes 2 columns
+*/
+
+.mountains{
+
+    grid-column:
+        span 2;
+
+}
+
+
+/*
+   Forest takes 2 rows
+*/
+
+.forest{
+
+    grid-row:
+        span 2;
+
+}
+
+
+/*
+   Waterfall takes 2 columns
+*/
+
+.waterfall{
+
+    grid-column:
+        span 2;
+
+}
+
+
+/*
+   Desert takes 2 columns
+*/
+
+.desert{
+
+    grid-column:
+        span 2;
+
+}
+
+
+/* =========================
+   HOVER EFFECT
+========================= */
+
+.bento-card:hover img{
+
+    transform:
+        scale(1.1);
+
+}
+
+
+.bento-card:hover{
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.6);
+
+}
+
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+
+@media(max-width: 900px){
+
+    .bento-gallery{
+
+        height: 700px;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        grid-template-rows:
+            repeat(4, 1fr);
+
+    }
+
+
+    .mountains{
+
+        grid-column:
+            span 2;
+
+    }
+
+
+    .forest{
+
+        grid-row:
+            span 2;
+
+    }
+
+
+    .waterfall{
+
+        grid-column:
+            span 1;
+
+    }
+
+
+    .desert{
+
+        grid-column:
+            span 1;
+
+    }
+
+}
+
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media(max-width: 600px){
+
+    body{
+
+        padding:
+            40px 15px 80px;
+
+    }
+
+
+    .header h1{
+
+        font-size: 2.2rem;
+
+    }
+
+
+    .bento-gallery{
+
+        height: auto;
+
+        display: grid;
+
+        grid-template-columns:
+            1fr;
+
+        grid-template-rows:
+            repeat(6, 280px);
+
+    }
+
+
+    /*
+       Remove special desktop
+       grid positioning on phones.
+    */
+
+    .mountains,
+    .forest,
+    .waterfall,
+    .desert{
+
+        grid-column:
+            auto;
+
+        grid-row:
+            auto;
+
+    }
+
+}
