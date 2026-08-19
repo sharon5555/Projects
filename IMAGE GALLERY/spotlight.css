@@ -1,0 +1,356 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body{
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #172554,
+            #020617 70%
+        );
+
+    padding:
+        60px 30px 100px;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+    text-align: center;
+
+    margin-bottom: 50px;
+
+}
+
+
+.small-title{
+
+    color: #38bdf8;
+
+    font-size: .8rem;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.header h1{
+
+    font-size: 3rem;
+
+    margin-bottom: 12px;
+
+}
+
+
+.header > p:last-child{
+
+    color: #94a3b8;
+
+}
+
+
+/* =========================
+   SPOTLIGHT GALLERY
+========================= */
+
+.spotlight-gallery{
+
+    max-width: 1300px;
+
+    margin: auto;
+
+    display: flex;
+
+    gap: 15px;
+
+    height: 500px;
+
+}
+
+
+/* =========================
+   SPOTLIGHT CARD
+========================= */
+
+.spotlight-card{
+
+    position: relative;
+
+    flex: 1;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+
+    transition:
+        flex .6s ease,
+        transform .6s ease,
+        filter .6s ease;
+
+    background: #0f172a;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.4);
+
+}
+
+
+/* =========================
+   CARD IMAGE
+========================= */
+
+.spotlight-card img{
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform .6s ease;
+
+}
+
+
+/* =========================
+   DARK OVERLAY
+========================= */
+
+.spotlight-card::after{
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 30%,
+            rgba(0,0,0,.9)
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================
+   CARD INFORMATION
+========================= */
+
+.card-info{
+
+    position: absolute;
+
+    left: 25px;
+
+    right: 20px;
+
+    bottom: 25px;
+
+    z-index: 2;
+
+}
+
+
+.card-info span{
+
+    color: #38bdf8;
+
+    font-size: .75rem;
+
+    letter-spacing: 3px;
+
+}
+
+
+.card-info h2{
+
+    font-size: 1.7rem;
+
+    margin:
+        5px 0;
+
+}
+
+
+.card-info p{
+
+    color: #cbd5e1;
+
+    font-size: .85rem;
+
+}
+
+
+/* =========================
+   ACTIVE SPOTLIGHT
+========================= */
+
+.spotlight-card.active{
+
+    flex: 3;
+
+    transform:
+        translateY(-10px);
+
+    box-shadow:
+        0 25px 60px rgba(56,189,248,.25);
+
+}
+
+
+/* =========================
+   ACTIVE IMAGE
+========================= */
+
+.spotlight-card.active img{
+
+    transform:
+        scale(1.08);
+
+}
+
+
+/* =========================
+   DARK OTHER CARDS
+========================= */
+
+.spotlight-gallery.has-active
+.spotlight-card:not(.active){
+
+    filter:
+        brightness(.35);
+
+    transform:
+        scale(.96);
+
+}
+
+
+/* =========================
+   HOVER TEXT
+========================= */
+
+.spotlight-card.active .card-info h2{
+
+    font-size: 2.2rem;
+
+}
+
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+
+@media(max-width: 900px){
+
+    .spotlight-gallery{
+
+        height: 450px;
+
+        gap: 10px;
+
+    }
+
+
+    .card-info h2{
+
+        font-size: 1.3rem;
+
+    }
+
+
+    .spotlight-card.active .card-info h2{
+
+        font-size: 1.7rem;
+
+    }
+
+}
+
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media(max-width: 600px){
+
+    body{
+
+        padding:
+            40px 15px 80px;
+
+    }
+
+
+    .header h1{
+
+        font-size: 2.2rem;
+
+    }
+
+
+    .spotlight-gallery{
+
+        height: auto;
+
+        flex-direction: column;
+
+    }
+
+
+    .spotlight-card{
+
+        min-height: 250px;
+
+    }
+
+
+    .spotlight-card.active{
+
+        flex: 3;
+
+    }
+
+}

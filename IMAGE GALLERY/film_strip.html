@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive -->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Film Strip Gallery</title>
+
+    <!-- Connect our CSS -->
+    <link rel="stylesheet" href="film_strip.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <p class="small-title">
+            CINEMA COLLECTION
+        </p>
+
+        <h1>
+            🎬 Film Strip Gallery
+        </h1>
+
+        <p>
+            A collection of memorable moments.
+        </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         FILM STRIP AREA
+    ========================== -->
+
+    <main class="film-section">
+
+
+        <!-- Top film holes -->
+
+        <div class="film-holes top-holes">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+
+        <!-- =========================
+             FILM STRIP
+        ========================== -->
+
+        <div class="film-window">
+
+            <div class="film-track">
+
+
+                <!-- IMAGE 1 -->
+
+                <article class="film-frame">
+
+                    <img
+                        src="../IMAGE GALLERY/assets/scene1.jpg"
+                        alt="Movie scene 1"
+                    >
+
+                    <div class="frame-number">
+                        01
+                    </div>
+
+                </article>
+
+
+
+                <!-- IMAGE 2 -->
+
+                <article class="film-frame">
+
+                    <img
+                        src="../IMAGE GALLERY/assets/scene2.jpg"
+                        alt="Movie scene 2"
+                    >
+
+                    <div class="frame-number">
+                        02
+                    </div>
+
+                </article>
+
+
+
+                <!-- IMAGE 3 -->
+
+                <article class="film-frame">
+
+                    <img
+                        src="../IMAGE GALLERY/assets/scene3.jpg"
+                        alt="Movie scene 3"
+                    >
+
+                    <div class="frame-number">
+                        03
+                    </div>
+
+                </article>
+
+
+
+                <!-- IMAGE 4 -->
+
+                <article class="film-frame">
+
+                    <img
+                        src="../IMAGE GALLERY/assets/scene4.jpeg"
+                        alt="Movie scene 4"
+                    >
+
+                    <div class="frame-number">
+                        04
+                    </div>
+
+                </article>
+
+
+
+                <!-- IMAGE 5 -->
+
+                <article class="film-frame">
+
+                    <img
+                        src="../IMAGE GALLERY/assets/scene5.jpeg"
+                        alt="Movie scene 5"
+                    >
+
+                    <div class="frame-number">
+                        05
+                    </div>
+
+                </article>
+
+
+
+                <!-- IMAGE 6 -->
+
+                <article class="film-frame">
+
+                    <img
+                        src="../IMAGE GALLERY/assets/scene6.jpeg"
+                        alt="Movie scene 6"
+                    >
+
+                    <div class="frame-number">
+                        06
+                    </div>
+
+                </article>
+
+
+
+                <!-- Duplicate images -->
+
+                <!--
+                    We duplicate the images so the
+                    animation can move continuously.
+                -->
+
+                <article class="film-frame">
+
+                    <img
+                        src="../IMAGE GALLERY/assets/scene1.jpg"
+                        alt="Movie scene 1"
+                    >
+
+                    <div class="frame-number">
+                        01
+                    </div>
+
+                </article>
+
+
+                <article class="film-frame">
+
+                    <img
+                        src="../IMAGE GALLERY/assets/scene2.jpg"
+                        alt="Movie scene 2"
+                    >
+
+                    <div class="frame-number">
+                        02
+                    </div>
+
+                </article>
+
+
+                <article class="film-frame">
+
+                    <img
+                        src="../IMAGE GALLERY/assets/scene3.jpg"
+                        alt="Movie scene 3"
+                    >
+
+                    <div class="frame-number">
+                        03
+                    </div>
+
+                </article>
+
+
+                <article class="film-frame">
+
+                    <img
+                        src="../IMAGE GALLERY/assets/scene4.jpeg"
+                        alt="Movie scene 4"
+                    >
+
+                    <div class="frame-number">
+                        04
+                    </div>
+
+                </article>
+
+
+                <article class="film-frame">
+
+                    <img
+                        src="../IMAGE GALLERY/assets/scene5.jpeg"
+                        alt="Movie scene 5"
+                    >
+
+                    <div class="frame-number">
+                        05
+                    </div>
+
+                </article>
+
+
+                <article class="film-frame">
+
+                    <img
+                        src="../IMAGE GALLERY/assets/scene6.jpeg"
+                        alt="Movie scene 6"
+                    >
+
+                    <div class="frame-number">
+                        06
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Bottom film holes -->
+
+        <div class="film-holes bottom-holes">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         CONTROLS
+    ========================== -->
+
+    <div class="controls">
+
+        <button id="playBtn">
+            ⏸ Pause Film
+        </button>
+
+    </div>
+
+
+
+    <!-- Connect JavaScript -->
+    <script src="film_strip.js"></script>
+
+</body>
+
+</html>
