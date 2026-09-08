@@ -1,0 +1,667 @@
+/* =========================================
+    NEON GALAXY LOGIN
+    Stage 2 - Main Visual Design
+   ========================================= */
+
+
+/* -----------------------------
+    1. CSS VARIABLES
+    These are reusable colors and
+    settings for the whole website.
+------------------------------ */
+
+:root {
+    --bg-color: #030014;
+    --card-bg: rgba(12, 8, 35, 0.72);
+
+    --primary: #9d4edd;
+    --secondary: #4cc9f0;
+
+    --text: #ffffff;
+    --muted-text: #aaa6c5;
+
+    --border: rgba(157, 78, 221, 0.35);
+
+    --input-bg: rgba(255, 255, 255, 0.05);
+}
+
+/* -----------------------------
+    2. BASIC RESET
+    Removes default browser spacing.
+------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* -----------------------------
+    3. BODY
+    Sets the basic appearance of
+    the entire website.
+------------------------------ */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg-color);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* -----------------------------
+    4. LOGIN PAGE
+    This is our main space area.
+------------------------------ */
+.login-page{
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    padding: 30px;
+}
+
+/* -----------------------------
+    5. GALAXY BACKGROUND
+    Creates the large glowing
+    purple/blue atmosphere.
+------------------------------ */
+.galaxy {
+    position: absolute;
+
+    width: 800px;
+    height: 800px;
+
+    border-radius: 50%;
+
+    background: 
+        radial-gradient(
+            circle,
+            rgba(157, 78, 221, 0.22),
+            transparent 55%
+        );
+
+        
+        animation: galaxyPulse 6s ease-in-out infinite;
+        z-index: 0;
+}
+
+/* -----------------------------
+    6. PLANET
+    Creates a glowing planet-like
+    object behind the login card.
+------------------------------ */
+.planet{
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: 
+        radial-gradient(
+            circle at 35% 30%,
+            #d9b3ff,
+            #7b2cbf 35%,
+            #240046 70%,
+            #090018 100%
+        );
+
+    box-shadow: 
+        0 0 40px rgba(157, 78, 221, 0.8),
+        0 0 100px rgba(76, 201, 240, 0.35);
+
+        opacity: 0.75;
+
+        transform: translate(260px, -180px);
+}
+
+
+/* -----------------------------
+    7. PLANET RING
+    The pseudo-element creates
+    the glowing ring around the planet.
+------------------------------ */
+.planet::before {
+    content:"" ;
+
+    position: absolute;
+
+    width: 390px;
+    height: 100px;
+
+    border: 3px solid rgba(76, 201, 240, 0.55);
+
+    border-radius: 50%;
+
+    top: 90px;
+    left: -55px;
+
+    transform: rotate(-20deg);
+
+    box-shadow: 
+        0 0 15px rgba(76, 201, 240, 0.7);
+}
+
+
+/* -----------------------------
+    8. STARS
+    Uses the galaxy element to
+    create a subtle star effect.
+------------------------------ */
+.galaxy::before,
+.galaxy::after {
+    content: "";
+
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    top: 0;
+    left: 0;
+
+    background: white;
+
+    border-radius: 50%;
+
+    box-shadow: 
+        80px 40px white,
+        160px 120px #9d4edd,
+        230px 70px white,
+        300px 180px #4cc9f0,
+        400px 100px white,
+        500px 250px #9d4edd,
+        600px 80px white,
+        700px 300px #4cc9f0,
+        100px 400px white,
+        250px 500px #9d4edd,
+        450px 450px white,
+        650px 550px #4cc9f0,
+        50px 600px white, 
+        350px 650px white,
+        550px 700px #9d4edd;
+    
+    animation: starsMove 8s linear infinite;
+
+}
+
+
+
+/* -----------------------------
+    9. LOGIN CARD
+    This is the glassmorphism
+    container holding our form.
+------------------------------ */
+.login-card{
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, 430px);
+
+    padding: 45px 40px;
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    backdrop-filter: blur(25px);
+
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow:
+        0 0 40px rgba(157, 78, 221, 0.15),
+        inset 0 0 30px rgba(255, 255, 255, 0.02);
+
+    animation: cardAppear 1s ease forwards;
+}
+
+
+
+/* -----------------------------
+    10. CARD GLOW
+    Creates a soft neon glow around
+    the edges of the login card.
+------------------------------ */
+.login-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -1px;
+
+    border-radius: 24px;
+
+    background: 
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(157, 78, 221, 0.5),
+            transparent,
+            rgba(76, 201, 240, 0.4),
+        );
+
+        z-index: -1;
+        opacity: 0.6;
+}
+
+/* -----------------------------
+    11. LOGO
+------------------------------ */
+.logo {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+    font-size: 28px;
+
+    color: white;
+
+    background: 
+        0 0 20px rgba(157, 78, 221, 0.8),
+        0 0 45px rgba(76, 201, 240, 0.3);
+
+    animation: logoGlow 3s eas-in-out infinite;
+}
+
+
+
+/* -----------------------------
+    12. HEADING
+------------------------------ */
+.login-card h1 {
+    text-align: center;
+
+    font-size: 32px;
+
+    margin-bottom: 10px;
+
+    letter-spacing: -0.5px;
+}
+
+
+
+/* -----------------------------
+    13. SUBTITLE
+------------------------------ */
+.subtitle {
+    text-align: center;
+
+    color: var(--muted-text);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+
+
+/* -----------------------------
+    14. INPUT GROUP
+------------------------------ */
+.input-group {
+    margin-bottom: 20px;
+}
+
+
+
+/* -----------------------------
+    15. LABEL
+------------------------------ */
+.input-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+    color: #d8d4e8;
+}
+
+
+/* -----------------------------
+    16. INPUT
+------------------------------ */
+.input-group input {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: var(--input-bg);
+
+    color: white;
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* -----------------------------
+    17. INPUT PLACEHOLDER
+------------------------------ */
+.input-group input::placeholder {
+    color: #77738e;
+}
+
+
+/* -----------------------------
+    18. INPUT FOCUS
+    Makes the input glow when
+    the user clicks inside it.
+------------------------------ */
+.input-group input:focus {
+    border-color: var(--secondary);
+
+    background: rgba(76, 201, 240, 0.06);
+
+    box-shadow:
+        0 0 15px rgba(76, 201, 240, 0.2);
+}
+
+
+/* -----------------------------
+    19. PASSWORD CONTAINER
+------------------------------ */
+.password-box {
+    position: relative;
+}
+
+
+/* -----------------------------
+    20. PASSWORD INPUT
+------------------------------ */
+.password-box input {
+    padding-right: 50px;
+}
+
+
+/* -----------------------------
+    21. SHOW PASSWORD BUTTON
+------------------------------ */
+#togglePassword {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    color: #aaa6c5;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    transition: color 0.3s ease;
+}
+
+
+#togglePassword:hover {
+    color: var(--secondary);
+}
+
+
+
+/* -----------------------------
+    22. FORM OPTIONS
+------------------------------ */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 25px;
+    font-size: 12px;
+
+}
+
+
+/* -----------------------------
+    23. REMEMBER ME
+------------------------------ */
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--muted-text);
+    cursor: pointer;
+}
+
+
+/* -----------------------------
+    24. CHECKBOX
+------------------------------ */
+.remember input {
+    accent-color: var(--primary);
+
+    cursor: pointer;
+}
+
+
+/* -----------------------------
+    25. LINKS
+------------------------------ */
+.form-options a,
+.register-text a{
+    color: var(--secondary);
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.form-options a:hover,
+.register-text a:hover {
+    color: var(--primary);
+}
+
+
+/* -----------------------------
+    26. LOGIN BUTTON start here to record.
+------------------------------ */
+.login-button {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px rgba(157, 78, 221, 0.3);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* -----------------------------
+    27. LOGIN BUTTON HOVER
+------------------------------ */
+.login-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 25px rgba(157, 78, 221, 0.6),
+        0 0 45px rgba(76, 201, 240, 0.25);
+}
+
+
+
+
+/* -----------------------------
+    28. LOGIN BUTTON CLICK
+------------------------------ */
+.login-button:active {
+    transform: translateY(0);
+}
+
+
+/* -----------------------------
+    29. REGISTER TEXT
+------------------------------ */
+.register-text {
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: var(--muted-text);
+
+    font-size: 13px;
+}
+
+
+
+/* -----------------------------
+    30. ANIMATIONS
+------------------------------ *//* Makes the galaxy slowly pulse */
+
+@keyframes galaxyPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+}
+
+
+/* Moves the stars */
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-80px);
+    }
+}
+
+
+/* Makes the login card appear smoothly */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(30px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Makes the logo glow */
+
+@keyframes logoGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 20px rgba(157, 78, 221, 0.6);
+    }
+
+    50% {
+        box-shadow:
+            0 0 35px rgba(76, 201, 240, 0.8);
+    }
+}
+
+
+/* -----------------------------
+    31. RESPONSIVE DESIGN
+    Makes the login page look good
+    on smaller screens.
+------------------------------ */
+
+@media (max-width: 600px) {
+
+    .login-page {
+        padding: 20px;
+    }
+
+    .login-card {
+        padding: 35px 25px;
+    }
+
+    .login-card h1 {
+        font-size: 27px;
+    }
+
+    .planet {
+        width: 180px;
+        height: 180px;
+
+        transform: translate(100px, -180px);
+    }
+
+    .planet::before {
+        width: 250px;
+        height: 70px;
+
+        top: 55px;
+        left: -35px;
+    }
+
+}

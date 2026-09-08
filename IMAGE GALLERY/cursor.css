@@ -1,5 +1,5 @@
 /* =========================
-   RESET
+    RESET
 ========================= */
 
 *{
@@ -14,7 +14,7 @@
 
 
 /* =========================
-   BODY
+    BODY
 ========================= */
 
 body{
@@ -40,7 +40,7 @@ body{
 
 
 /* =========================
-   HEADER
+    HEADER
 ========================= */
 
 .header{
@@ -82,7 +82,7 @@ body{
 
 
 /* =========================
-   GALLERY
+    GALLERY
 ========================= */
 
 .animal-gallery{
@@ -97,7 +97,7 @@ body{
 
 
 /* =========================
-   ANIMAL LIST
+    ANIMAL LIST
 ========================= */
 
 .animal-list{
@@ -108,7 +108,7 @@ body{
 
 
 /* =========================
-   ANIMAL
+    ANIMAL
 ========================= */
 
 .animal{
@@ -130,7 +130,7 @@ body{
 
 
 /* =========================
-   NUMBER
+    NUMBER
 ========================= */
 
 .animal span{
@@ -149,7 +149,7 @@ body{
 
 
 /* =========================
-   ANIMAL NAME
+    ANIMAL NAME
 ========================= */
 
 .animal h2{
@@ -166,7 +166,7 @@ body{
 
 
 /* =========================
-   DESCRIPTION
+    DESCRIPTION
 ========================= */
 
 .animal p{
@@ -179,7 +179,7 @@ body{
 
 
 /* =========================
-   HOVER EFFECT
+    HOVER EFFECT
 ========================= */
 
 .animal:hover{
@@ -201,7 +201,7 @@ body{
 
 
 /* =========================
-   CURSOR IMAGE
+    CURSOR IMAGE
 ========================= */
 
 .cursor-image{
@@ -238,7 +238,7 @@ body{
 
 
 /* =========================
-   PREVIEW IMAGE
+    PREVIEW IMAGE
 ========================= */
 
 .cursor-image img{
@@ -255,7 +255,7 @@ body{
 
 
 /* =========================
-   SHOW IMAGE
+    SHOW IMAGE
 ========================= */
 
 .cursor-image.show{
@@ -270,7 +270,7 @@ body{
 
 
 /* =========================
-   MOBILE
+    MOBILE
 ========================= */
 
 @media(max-width: 700px){
@@ -298,9 +298,9 @@ body{
 
 
     /*
-       The cursor doesn't work
-       the same way on phones,
-       so we hide the preview.
+            The cursor doesn't work
+            the same way on phones,
+            so we hide the preview.
     */
 
     .cursor-image{
