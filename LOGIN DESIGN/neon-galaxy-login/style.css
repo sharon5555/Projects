@@ -87,9 +87,15 @@ body{
             transparent 55%
         );
 
-        
-        animation: galaxyPulse 6s ease-in-out infinite;
-        z-index: 0;
+        box-shadow: 
+        0 0 80px rgba(157, 78, 221, 0.8),
+        0 0 160px rgba(157, 78, 221, 0.6),
+        0 0 280px rgba(76, 201, 240, 0.45),
+        0 0 400px rgba(76, 201, 240, 0.25);
+
+    animation: galaxyPulse 6s ease-in-out infinite;
+
+    z-index: 0;
 }
 
 /* -----------------------------
@@ -219,8 +225,10 @@ body{
 
     -webkit-backdrop-filter: blur(25px);
     box-shadow:
-        0 0 40px rgba(157, 78, 221, 0.15),
-        inset 0 0 30px rgba(255, 255, 255, 0.02);
+        0 0 30px rgba(157, 78, 221, 0.45),
+        0 0 70px rgba(157, 78, 221, 0.35),
+        0 0 130px rgba(76, 201, 240, 0.2),
+        0 25px 80px rgba(0, 0, 0, 0.7);
 
     animation: cardAppear 1s ease forwards;
 }
@@ -274,10 +282,19 @@ body{
 
     color: white;
 
-    background: 
+    /*creates the purple-to-blue color inside the logo*/
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    /* creates the neon glow around the logo*/
+    box-shadow: 
         0 0 20px rgba(157, 78, 221, 0.8),
         0 0 45px rgba(76, 201, 240, 0.3);
 
+    /* Animate the glow continuously*/
     animation: logoGlow 3s eas-in-out infinite;
 }
 
@@ -489,12 +506,14 @@ body{
 
 
 /* -----------------------------
-    26. LOGIN BUTTON start here to record.
+    26. LOGIN BUTTON.
 ------------------------------ */
 .login-button {
     width: 100%;
 
     padding: 15px;
+
+    margin-bottom: 15px;
 
     border: none;
 
@@ -563,7 +582,8 @@ body{
 
 /* -----------------------------
     30. ANIMATIONS
------------------------------- *//* Makes the galaxy slowly pulse */
+------------------------------ */
+/* Makes the galaxy slowly pulse */
 
 @keyframes galaxyPulse {
 
