@@ -1,13 +1,14 @@
 /* =========================================================
-    MAGNETIC NAVBAR
-    STAGE 2 — MODERN CSS DESIGN
+   MAGNETIC NAVBAR
+   STAGE 2 — MODERN CSS DESIGN
 ========================================================= */
 
+
 /* =========================================================
-    1. CSS VARIABLES
-    ---------------------------------------------------------
-    We store our main colors in variables so we can easily
-    change the design later from one place.
+   1. CSS VARIABLES
+   ---------------------------------------------------------
+   We store our main colors in variables so we can easily
+   change the design later from one place.
 ========================================================= */
 
 :root {
@@ -27,10 +28,10 @@
 
 
 /* =========================================================
-    2. BASIC RESET
-    ---------------------------------------------------------
-    Removes default browser spacing so we have more control
-    over the design.
+   2. BASIC RESET
+   ---------------------------------------------------------
+   Removes default browser spacing so we have more control
+   over the design.
 ========================================================= */
 
 * {
@@ -41,64 +42,320 @@
 
 
 /* =========================================================
-    3. BODY
-    ---------------------------------------------------------
-    Creates the dark background for our modern navbar.
+   3. BODY
+   ---------------------------------------------------------
+   Creates the dark background for our modern navbar.
 ========================================================= */
+
+body {
+    min-height: 100vh;
+
+    background-color: var(--bg-color);
+
+    color: var(--text-color);
+
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 
 /* =========================================================
-    4. NAVBAR
-    ---------------------------------------------------------
-    This is the main navigation container.
+   4. NAVBAR
+   ---------------------------------------------------------
+   This is the main navigation container.
 ========================================================= */
+
+.navbar {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 20px auto;
+
+    padding: 15px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: var(--nav-bg);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 18px;
+
+    box-shadow: var(--shadow);
+
+    /* Creates the glass-like blur effect */
+    backdrop-filter: blur(12px);
+
+    /* Keeps the navbar visible while scrolling */
+    position: sticky;
+    top: 20px;
+
+    z-index: 1000;
+}
 
 
 /* =========================================================
-    6. NAVIGATION MENU
+   5. LOGO
 ========================================================= */
+
+.logo {
+    color: var(--text-color);
+
+    font-size: 1.5rem;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    /* Makes the logo ready for animation later */
+    display: inline-block;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+
+/* Logo hover effect */
+
+.logo:hover {
+    color: var(--secondary-color);
+
+    transform: scale(1.05);
+
+    text-shadow:
+        0 0 10px var(--secondary-color),
+        0 0 25px var(--secondary-color);
+}
+
 
 /* =========================================================
-    7. NAVIGATION LINKS
+   6. NAVIGATION MENU
 ========================================================= */
+
+.nav-menu {
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+}
 
 
 /* =========================================================
-    8. LINK HOVER
+   7. NAVIGATION LINKS
 ========================================================= */
+
+.nav-link {
+    position: relative;
+
+    color: var(--muted-color);
+
+    text-decoration: none;
+
+    font-size: 0.95rem;
+
+    font-weight: 500;
+
+    /* Allows transform animation to work correctly */
+    display: inline-block;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
 
 
 /* =========================================================
-    9. ANIMATED UNDERLINE
-    ---------------------------------------------------------
-    The underline starts with zero width and expands when
-    the user hovers over a navigation link.
+   8. LINK HOVER
 ========================================================= */
+
+.nav-link:hover {
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   9. ANIMATED UNDERLINE
+   ---------------------------------------------------------
+   The underline starts with zero width and expands when
+   the user hovers over a navigation link.
+========================================================= */
+
+.nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: var(--secondary-color);
+
+    transform: translateX(-50%);
+
+    border-radius: 10px;
+
+    transition: width 0.3s ease;
+}
 
 
 /* Expand underline on hover */
 
+.nav-link:hover::after {
+    width: 100%;
+}
+
 
 /* =========================================================
-    10. MOBILE MENU BUTTON
+   10. MOBILE MENU BUTTON
 ========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    /* Places the three hamburger lines vertically */
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+}
+
 
 /* Hamburger lines */
 
+.menu-toggle span {
+    width: 20px;
+    height: 2px;
+
+    background-color: var(--text-color);
+
+    border-radius: 5px;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
 
 /* =========================================================
-    11. TABLET / MOBILE RESPONSIVE DESIGN
+   11. TABLET / MOBILE RESPONSIVE DESIGN
 ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Make the navbar slightly wider on small screens */
+    .navbar {
+        width: 94%;
+
+        padding: 14px 18px;
+    }
+
+
+    /* Show the hamburger button */
+    .menu-toggle {
+        display: flex;
+    }
+
+
+    /* Hide the desktop navigation for now */
+    .nav-menu {
+        display: none;
+    }
+
+}
+
 
 /* =========================================================
-    12. MOBILE NAVIGATION MENU
-    ---------------------------------------------------------
-    This controls how the navigation appears when the
-    hamburger button is clicked.
+   12. MOBILE NAVIGATION MENU
+   ---------------------------------------------------------
+   This controls how the navigation appears when the
+   hamburger button is clicked.
 ========================================================= */
 
+@media (max-width: 768px) {
+
+    /* Show the navigation menu when JavaScript adds
+       the "active" class */
+    .nav-menu.active {
+        display: flex;
+
+        position: absolute;
+
+        top: 75px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 25px;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 25px;
+
+        background: var(--nav-bg);
+
+        border: 1px solid var(--border-color);
+
+        border-radius: 15px;
+
+        box-shadow: var(--shadow);
+
+        backdrop-filter: blur(12px);
+    }
+
+
+    /* Make the navigation links slightly larger
+       on the mobile menu */
+    .nav-menu.active .nav-link {
+        font-size: 1rem;
+    }
 
 
     /* =====================================================
-    HAMBURGER → X ANIMATION
+       HAMBURGER → X ANIMATION
     ===================================================== */
+
+    /* First line rotates */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+
+    /* Middle line disappears */
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+
+    /* Third line rotates */
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+}

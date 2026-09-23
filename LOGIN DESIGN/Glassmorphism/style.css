@@ -1,0 +1,903 @@
+/* =================================
+   1. RESET
+   Removes the browser's default
+   spacing from our elements.
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =================================
+   2. CSS VARIABLES
+   These colors will be reused
+   throughout our project.
+================================= */
+
+:root {
+    --background: #111827;
+    --primary: #6c63ff;
+    --secondary: #00d4ff;
+    --pink: #ff4ecd;
+    --white: #ffffff;
+    --muted: #b8c1d9;
+}
+
+
+/* =================================
+   3. BODY
+   Creates the main dark background
+   for our glassmorphism design.
+================================= */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: var(--background);
+
+    color: var(--white);
+
+    min-height: 100vh;
+}
+
+
+/* =================================
+   4. LOGIN PAGE
+   Takes up the entire screen and
+   centers the login card.
+================================= */
+
+.login-page {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    /* Creates the main glass layer */
+    background-color: rgba(255, 255, 255, 0.12);
+
+    /* Blurs the colorful circles
+       behind the glass */
+    backdrop-filter: blur(30px);
+
+    -webkit-backdrop-filter: blur(30px);
+
+    isolation: isolate;
+}
+
+
+/* =================================
+   5. BACKGROUND SHAPES
+   This container covers the entire
+   page and sits behind the card.
+================================= */
+
+.background-shapes {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: -1;
+}
+
+
+/* =================================
+   6. BASIC SHAPE
+   All three floating shapes share
+   these styles.
+================================= */
+
+.shape {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(2px);
+
+    opacity: 0.75;
+}
+
+
+/* =================================
+   7. FIRST FLOATING SHAPE
+   A large purple glass-like orb.
+================================= */
+
+.shape-one {
+    width: 280px;
+
+    height: 280px;
+
+    background-color: var(--primary);
+
+    top: 10%;
+
+    left: 10%;
+
+    box-shadow:
+        0 0 60px rgba(108, 99, 255, 0.7);
+
+    animation:
+        floatOne 8s ease-in-out infinite;
+}
+
+
+/* =================================
+   8. SECOND FLOATING SHAPE
+   A blue orb positioned on the
+   opposite side of the screen.
+================================= */
+
+.shape-two {
+    width: 220px;
+
+    height: 220px;
+
+    background-color: var(--secondary);
+
+    right: 8%;
+
+    bottom: 12%;
+
+    box-shadow:
+        0 0 70px rgba(0, 212, 255, 0.6);
+
+    animation:
+        floatTwo 10s ease-in-out infinite;
+}
+
+
+/* =================================
+   9. THIRD FLOATING SHAPE
+   A smaller pink orb that gives
+   the background more personality.
+================================= */
+
+.shape-three {
+    width: 140px;
+
+    height: 140px;
+
+    background-color: var(--pink);
+
+    right: 25%;
+
+    top: 15%;
+
+    box-shadow:
+        0 0 50px rgba(255, 78, 205, 0.6);
+
+    animation:
+        floatThree 7s ease-in-out infinite;
+}
+
+
+/* =================================
+   10. FIRST FLOATING ANIMATION
+   Moves the purple orb up and down
+   while slightly rotating it.
+================================= */
+
+@keyframes floatOne {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(60px, -50px);
+    }
+}
+
+
+/* =================================
+   11. SECOND FLOATING ANIMATION
+   Gives the blue orb a different
+   movement pattern.
+================================= */
+
+@keyframes floatTwo {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-70px, -40px);
+    }
+}
+
+
+/* =================================
+   12. THIRD FLOATING ANIMATION
+   Makes the pink orb move differently
+   from the other background shapes.
+================================= */
+
+@keyframes floatThree {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-40px, 60px);
+    }
+}
+
+/* =================================
+   13. LOGIN CARD
+   Creates the main glass panel
+   that sits above the animated
+   background shapes.
+================================= */
+
+.login-card {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(100%, 430px);
+
+    padding: 45px 40px;
+
+    /* Transparent white creates the
+       basic glass appearance */
+    background-color: rgba(255, 255, 255, 0.08);
+
+    /* Creates the thin glass border */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 28px;
+
+    /* This is one of the most important
+       properties for the glass effect.
+       It blurs whatever is behind the card. */
+    backdrop-filter: blur(25px);
+
+    /* Safari support */
+    -webkit-backdrop-filter: blur(25px);
+
+    /* Creates a soft shadow around
+       and underneath the glass card */
+    box-shadow:
+        0 0 30px rgba(108, 99, 255, 0.15),
+        0 0 80px rgba(0, 212, 255, 0.08),
+        0 25px 70px rgba(0, 0, 0, 0.45);
+
+    /* The card smoothly appears
+       when the page loads */
+    animation: cardAppear 1s ease forwards;
+}
+
+
+/* =================================
+   14. GLASS CARD HIGHLIGHT
+   Creates a soft light effect
+   along the top of the card.
+================================= */
+
+.login-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+
+    width: 80%;
+
+    height: 1px;
+
+    background-color: rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.6);
+
+    opacity: 0.5;
+}
+
+
+/* =================================
+   15. LOGIN HEADER
+   Centers the logo, title and
+   description at the top.
+================================= */
+
+.login-header {
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    margin-bottom: 32px;
+}
+
+
+/* =================================
+   16. LOGO
+   Creates the small glowing symbol
+   at the top of the glass card.
+================================= */
+
+.logo {
+    width: 58px;
+
+    height: 58px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+
+    color: var(--white);
+
+    background-color: rgba(255, 255, 255, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow:
+        0 0 20px rgba(108, 99, 255, 0.5),
+        inset 0 0 15px rgba(255, 255, 255, 0.08);
+
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+
+/* =================================
+   17. LOGIN TITLE
+================================= */
+
+.login-header h1 {
+    font-size: 32px;
+
+    margin-bottom: 10px;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =================================
+   18. LOGIN DESCRIPTION
+================================= */
+
+.login-header p {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =================================
+   19. CARD ENTRANCE ANIMATION
+   The card starts slightly lower
+   and transparent before smoothly
+   moving into position.
+================================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =================================
+   20. LOGO FLOAT ANIMATION
+   Gives the logo a gentle floating
+   movement.
+================================= */
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* =================================
+   21. INPUT GROUP
+   Keeps each label and input
+   organized vertically.
+================================= */
+
+.input-group {
+    margin-bottom: 22px;
+}
+
+
+/* =================================
+   22. INPUT LABEL
+   Styles the text above each
+   form input.
+================================= */
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =================================
+   23. NORMAL INPUT
+   Creates the transparent glass
+   appearance for our inputs.
+================================= */
+
+.input-group input {
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 14px;
+
+    outline: none;
+
+    background-color: rgba(255, 255, 255, 0.07);
+
+    color: var(--white);
+
+    font-size: 14px;
+
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =================================
+   24. INPUT PLACEHOLDER
+   Makes placeholder text softer
+   than the actual user input.
+================================= */
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* =================================
+   25. INPUT FOCUS
+   When the user clicks inside an
+   input, it receives a glassy glow.
+================================= */
+
+.input-group input:focus {
+    border-color: var(--secondary);
+
+    background-color: rgba(255, 255, 255, 0.1);
+
+    box-shadow:
+        0 0 0 3px rgba(0, 212, 255, 0.08),
+        0 0 25px rgba(0, 212, 255, 0.2);
+
+    transform: translateY(-2px);
+}
+
+
+/* =================================
+   26. PASSWORD BOX
+   Allows the password input and
+   eye button to sit together.
+================================= */
+
+.password-box {
+    position: relative;
+}
+
+
+/* =================================
+   27. PASSWORD INPUT
+   Creates room on the right side
+   for the show/hide button.
+================================= */
+
+.password-box input {
+    padding-right: 52px;
+}
+
+
+/* =================================
+   28. PASSWORD TOGGLE
+   Styles the eye button.
+================================= */
+
+#togglePassword {
+    position: absolute;
+
+    top: 50%;
+
+    right: 14px;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =================================
+   29. PASSWORD TOGGLE HOVER
+   Makes the eye icon react to
+   the user's mouse.
+================================= */
+
+#togglePassword:hover {
+    color: var(--secondary);
+
+    transform:
+        translateY(-50%)
+        scale(1.15);
+}
+
+
+/* =================================
+   30. FORM OPTIONS
+   Places Remember Me and
+   Forgot Password on one line.
+================================= */
+
+.form-options {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 4px 0 25px;
+
+    font-size: 12px;
+}
+
+
+/* =================================
+   31. REMEMBER ME
+================================= */
+
+.remember-me {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--muted);
+
+    cursor: pointer;
+}
+
+
+/* =================================
+   32. CHECKBOX
+================================= */
+
+.remember-me input {
+    width: 14px;
+
+    height: 14px;
+
+    accent-color: var(--primary);
+
+    cursor: pointer;
+}
+
+
+/* =================================
+   33. FORGOT PASSWORD LINK
+================================= */
+
+.form-options a {
+    color: var(--secondary);
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+
+.form-options a:hover {
+    color: var(--white);
+}
+
+
+/* =================================
+   34. LOGIN BUTTON
+   Creates the main interactive
+   button for the login form.
+================================= */
+
+.login-button {
+    position: relative;
+
+    width: 100%;
+
+    height: 54px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 15px;
+
+    background-color: rgba(108, 99, 255, 0.75);
+
+    color: var(--white);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* =================================
+   35. BUTTON LIGHT EFFECT
+   Creates a light beam that moves
+   across the button.
+================================= */
+
+.login-button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 70%;
+
+    height: 100%;
+
+    background-color: rgba(255, 255, 255, 0.18);
+
+    transform: skewX(-25deg);
+
+    transition: left 0.6s ease;
+}
+
+
+/* =================================
+   36. BUTTON HOVER
+   Moves the light beam across
+   the button when hovered.
+================================= */
+
+.login-button:hover::before {
+    left: 130%;
+}
+
+
+/* =================================
+   37. BUTTON HOVER EFFECT
+   Makes the entire button rise
+   slightly and glow.
+================================= */
+
+.login-button:hover {
+    background-color: rgba(108, 99, 255, 0.95);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(108, 99, 255, 0.35),
+        0 0 25px rgba(0, 212, 255, 0.15);
+}
+
+
+/* =================================
+   38. BUTTON ACTIVE
+   Gives feedback when the user
+   actually presses the button.
+================================= */
+
+.login-button:active {
+    transform: translateY(0) scale(0.98);
+}
+
+
+/* =================================
+   39. BUTTON ARROW
+================================= */
+
+.button-arrow {
+    font-size: 18px;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* =================================
+   40. ARROW HOVER
+   Moves the arrow forward when
+   the button is hovered.
+================================= */
+
+.login-button:hover .button-arrow {
+    transform: translateX(5px);
+}
+
+
+/* =================================
+   41. REGISTER TEXT
+================================= */
+
+.register-text {
+    margin-top: 25px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =================================
+   42. REGISTER LINK
+================================= */
+
+.register-text a {
+    color: var(--white);
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+
+.register-text a:hover {
+    color: var(--secondary);
+}
+
+/* =================================
+   43. FORM MESSAGE
+   Styles the success and error
+   messages created by JavaScript.
+================================= */
+
+.form-message {
+    margin-top: 18px;
+
+    padding: 12px 15px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    animation: messageAppear 0.4s ease;
+}
+
+
+/* =================================
+   44. ERROR MESSAGE
+================================= */
+
+.form-message.error {
+    color: #ffb4b4;
+
+    background-color: rgba(255, 70, 70, 0.12);
+
+    border: 1px solid rgba(255, 70, 70, 0.25);
+}
+
+
+/* =================================
+   45. SUCCESS MESSAGE
+================================= */
+
+.form-message.success {
+    color: #b9ffd8;
+
+    background-color: rgba(0, 255, 150, 0.1);
+
+    border: 1px solid rgba(0, 255, 150, 0.25);
+}
+
+
+/* =================================
+   46. MESSAGE ANIMATION
+   Makes the message smoothly appear.
+================================= */
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}

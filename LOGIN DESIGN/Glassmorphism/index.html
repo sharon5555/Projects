@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on phones and tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Glassmorphism Login</title>
+
+    <!-- Connect our CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!--
+        MAIN LOGIN PAGE
+        This is the main container for
+        our entire glassmorphism design.
+    -->
+    <main class="login-page">
+
+        <!--
+            BACKGROUND DECORATIONS
+            These shapes will float behind
+            the glass login card.
+        -->
+        <div class="background-shapes">
+
+            <span class="shape shape-one"></span>
+            <span class="shape shape-two"></span>
+            <span class="shape shape-three"></span>
+
+        </div>
+
+
+        <!--
+            GLASS LOGIN CARD
+            This is the main frosted-glass
+            container that holds our form.
+        -->
+        <section class="login-card">
+
+            <!-- Animated glowing circle -->
+            <div class="glass-orb"></div>
+
+
+            <!--
+                LOGIN HEADER
+                Contains the logo, title and
+                short description.
+            -->
+            <div class="login-header">
+
+                <div class="logo">
+                    ✦
+                </div>
+
+                <h1>Welcome Back</h1>
+
+                <p>
+                    Sign in to continue your journey.
+                </p>
+
+            </div>
+
+
+            <!--
+                LOGIN FORM
+                JavaScript will later control
+                the form interactions.
+            -->
+            <form id="loginForm">
+
+                <!-- Email field -->
+                <div class="input-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
+
+                <!-- Password field -->
+                <div class="input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                        >
+
+                        <!-- Show/hide password button -->
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            aria-label="Show password"
+                        >
+                            👁
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Form options -->
+                <div class="form-options">
+
+                    <label class="remember-me">
+
+                        <input
+                            type="checkbox"
+                            id="remember"
+                        >
+
+                        <span>Remember me</span>
+
+                    </label>
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- Login button -->
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+                    <span>Sign In</span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </form>
+
+
+            <!-- Registration text -->
+            <p class="register-text">
+
+                Don't have an account?
+
+                <a href="#">
+                    Create Account
+                </a>
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- Connect JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
